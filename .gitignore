@@ -125,3 +125,4 @@ dmypy.json
 
 value_based/Banana_Linux/
 value_based/VisualBanana_Linux/
+.ipynb_checkpoints/
