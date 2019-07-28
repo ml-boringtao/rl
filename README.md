@@ -16,4 +16,9 @@ cd deep-reinforcement-learning/python
 pip install
 
 python -m ipykernel install --user --name drlnd --display-name "drlnd"
+
+pip install box2d
+sudo apt-get install xvfb
+pip install xvfbwrapper
+pip install pyvirtualdisplay
 ```
