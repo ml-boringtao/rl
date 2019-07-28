@@ -7,6 +7,7 @@ Solutions to the projects Udacity's Deep Reinforcement Learning Nanodegree progr
 
 conda create --name drlnd python=3.6
 source activate drlnd
+echo 'source activate drlnd' >> ~/.bashrc 
 
 pip install box2d
 
