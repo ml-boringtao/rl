@@ -11,7 +11,7 @@ echo 'source activate drlnd' >> ~/.bashrc
 
 git clone https://github.com/udacity/deep-reinforcement-learning.git
 cd deep-reinforcement-learning/python
-pip install
+pip install .
 
 python -m ipykernel install --user --name drlnd --display-name "drlnd"
 
