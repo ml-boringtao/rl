@@ -9,8 +9,6 @@ conda create --name drlnd python=3.6
 source activate drlnd
 echo 'source activate drlnd' >> ~/.bashrc 
 
-pip install box2d
-
 git clone https://github.com/udacity/deep-reinforcement-learning.git
 cd deep-reinforcement-learning/python
 pip install
