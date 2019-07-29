@@ -15,6 +15,7 @@ pip install .
 
 python -m ipykernel install --user --name drlnd --display-name "drlnd"
 
+sudo apt-get install swig
 pip install box2d
 sudo apt-get install xvfb
 pip install xvfbwrapper
