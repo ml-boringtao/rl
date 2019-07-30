@@ -61,5 +61,5 @@ pip install -r requirements.txt
 
 ```
 ## Instructions
-- **OPTION 1**: Run solution_ddpg_1.ipynb (based on model_1.py and ddpg_agent_1.py, checkpoint files: output/ddpg_1_checkpoint_actor.pth, ddpg_1_checkpoint_critic.pth, ddpg_1_scores.npy, ddpg_1_scores_plot.png)
-- **OPTION 2**: Run solution_ddpg_20.ipynb (based on model_20.py and ddpg_agent_20.py, checkpoint files: output/ddpg_20_checkpoint_actor.pth, ddpg_20_checkpoint_critic.pth, ddpg_20_scores.npy, ddpg_20_scores_plot.png)
+- **OPTION 1**: Run solution_ddpg_1.ipynb
+- **OPTION 2**: Run solution_ddpg_20.ipynb
