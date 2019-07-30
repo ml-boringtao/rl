@@ -3,6 +3,7 @@
 The model architecture:
 ![DQN](images/dqn.png)
 - **Double DQN**: Double DQN handles the problem of the overestimation of Q-values. Two networks are used to decouple the action selection from the target Q value generation. DQN network to select what is the best action to take for the next state (the action with the highest Q value). Target network to calculate the target Q value of taking that action at the next state.
+
 The model architecture of Double DQN is the same as DQN. It uses two of them. 
 - **Dueling Double DQN**: Dueling Double DQN separates the estimator of V(s) : the value of being at that state and A(s,a): the advantage of taking that action at that state (how much better is to take this action versus all other possible actions at that state). By decoupling the estimation, intuitively DDQN can learn which states are (or are not) valuable without having to learn the effect of each action at each state (since it’s also calculating V(s)). It helps accelerate the training. 
 The model architecture:
