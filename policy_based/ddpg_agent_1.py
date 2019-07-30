@@ -17,12 +17,7 @@ class Agent():
                 actor_fc1_units=400, actor_fc2_units=300,
                 critic_fcs1_units=400, critic_fc2_units=300,
                 buffer_size=int(1e5), batch_size=128,
-<<<<<<< HEAD
                 gamma=0.99, tau=1e-3, lr_actor=1e-4, lr_critic=1e-4, weight_decay=0,
-=======
-                gamma=0.99, tau=1e-3 , bn_mode=0,
-                lr_actor=1e-4, lr_critic=1e-4, weight_decay=0,
->>>>>>> fe6545afa0637adb970e82e7e0163dcc60cbe938
                 add_ounoise=True, mu=0., theta=0.15, sigma=0.2):
         
         """Initialize an Agent object.
@@ -40,10 +35,6 @@ class Agent():
             batch_size (int) : minibatch size
             gamma (int) : discount factor
             tau (int) : for soft update of target parameter
-<<<<<<< HEAD
-=======
-            bn_mode (int): Use Batch Norm - 0=disabled, 1=BN before Activation, 2=BN after Activation (3, 4 are alt. versions of 1, 2)
->>>>>>> fe6545afa0637adb970e82e7e0163dcc60cbe938
             lr_actor (int) : learning rate of the actor 
             lr_critic (int) : learning rate of the critic 
             weight_decay (int) : L2 weight decay  
@@ -53,17 +44,11 @@ class Agent():
             sigma (float) : Ornstein-Uhlenbeck noise parameter            
         """
         
-<<<<<<< HEAD
+        
         print("\n[INFO]ddpg constructor called with parameters: state_size={} action_size={} random_seed={} actor_fc1_units={} actor_fc2_units={} critic_fcs1_units={} critic_fc2_units={} buffer_size={} batch_size={} gamma={} tau={} lr_actor={} lr_critic={} weight_decay={} add_ounoise={} mu={} theta={} sigma={} \n".format(state_size, action_size, random_seed, 
                                                           actor_fc1_units, actor_fc2_units, critic_fcs1_units, critic_fc2_units,
                                                           buffer_size, batch_size, gamma, tau, 
                                                           lr_actor, lr_critic, weight_decay, 
-=======
-        print("\n[INFO]ddpg constructor called with parameters: state_size={} action_size={} random_seed={} actor_fc1_units={} actor_fc2_units={} critic_fcs1_units={} critic_fc2_units={} buffer_size={} batch_size={} gamma={} tau={} bn_mode={} lr_actor={} lr_critic={} weight_decay={} add_ounoise={} mu={} theta={} sigma={} \n".format(state_size, action_size, random_seed, 
-                                                          actor_fc1_units, actor_fc2_units, critic_fcs1_units, critic_fc2_units,
-                                                          buffer_size, batch_size, gamma, tau, 
-                                                          bn_mode, lr_actor, lr_critic, weight_decay, 
->>>>>>> fe6545afa0637adb970e82e7e0163dcc60cbe938
                                                           add_ounoise, mu, theta,sigma))
         
         self.state_size = state_size
@@ -78,14 +63,9 @@ class Agent():
         self.weight_decay=weight_decay
         self.add_ounoise=add_ounoise
 
-        # Actor Network (w/ Target Network)
-<<<<<<< HEAD
+
         self.actor_local = Actor(state_size, action_size, random_seed, actor_fc1_units, actor_fc2_units).to(device)
         self.actor_target = Actor(state_size, action_size, random_seed, actor_fc1_units, actor_fc2_units).to(device)
-=======
-        self.actor_local = Actor(state_size, action_size, random_seed, actor_fc1_units, actor_fc2_units, bn_mode=bn_mode).to(device)
-        self.actor_target = Actor(state_size, action_size, random_seed, actor_fc1_units, actor_fc2_units, bn_mode=bn_mode).to(device)
->>>>>>> fe6545afa0637adb970e82e7e0163dcc60cbe938
         self.actor_optimizer = optim.Adam(self.actor_local.parameters(), lr=lr_actor)
         
         # Make sure the Target Network has the same weight values as the Local Network
@@ -93,13 +73,8 @@ class Agent():
             target.data.copy_(local.data)
     
         # Critic Network (w/ Target Network)
-<<<<<<< HEAD
         self.critic_local = Critic(state_size, action_size, random_seed, critic_fcs1_units, critic_fc2_units).to(device)
         self.critic_target = Critic(state_size, action_size, random_seed, critic_fcs1_units, critic_fc2_units).to(device)
-=======
-        self.critic_local = Critic(state_size, action_size, random_seed, critic_fcs1_units, critic_fc2_units, bn_mode=bn_mode).to(device)
-        self.critic_target = Critic(state_size, action_size, random_seed, critic_fcs1_units, critic_fc2_units, bn_mode=bn_mode).to(device)
->>>>>>> fe6545afa0637adb970e82e7e0163dcc60cbe938
         self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=lr_critic, weight_decay=self.weight_decay)
         
         # Make sure the Target Network has the same weight values as the Local Network

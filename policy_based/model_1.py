@@ -33,23 +33,9 @@ class Actor(nn.Module):
         
         # Normalization layers
         self.bn1 = nn.BatchNorm1d(fc1_units)
-<<<<<<< HEAD
         
-        self.reset_parameters()    
-=======
-        if bn_mode!=2:
-            self.bn2 = nn.BatchNorm1d(fc2_units)     
-        if bn_mode==3:    
-            self.bn3 = nn.BatchNorm1d(action_size)   
-        self.bn_mode=bn_mode
-        
-        self.reset_parameters()
-        
-        #print("[INFO] Actor initialized with parameters : state_size={} action_size={} seed={} fc1_units={} fc2_units={} bn_mode={}".format(state_size, action_size, seed, fc1_units, fc2_units, bn_mode))
-        
-        
->>>>>>> fe6545afa0637adb970e82e7e0163dcc60cbe938
-
+        self.reset_parameters()      
+      
     def reset_parameters(self):
         self.fc1.weight.data.uniform_(*hidden_init(self.fc1))
         self.fc2.weight.data.uniform_(*hidden_init(self.fc2))
@@ -62,53 +48,12 @@ class Actor(nn.Module):
         if state.dim() == 1:
             state = torch.unsqueeze(state,0)
         
-<<<<<<< HEAD
         # Batch Normalization after Activation  
         x = F.relu(self.fc1(state))
         x = self.bn1(x) 
         x = F.relu(self.fc2(x))
         return F.tanh(self.fc3(x))
-=======
-        if self.bn_mode==0:
-            # Batch Normalization disabled
-            x = F.relu(self.fc1(state))
-            x = F.relu(self.fc2(x))
-            return F.tanh(self.fc3(x))
-        elif self.bn_mode==1:
-            # Batch Normalization before Activation
-            x = self.fc1(state)
-            x = self.bn1(x)   
-            x = F.relu(x)
-            x = self.fc2(x)
-            x = self.bn2(x)   
-            x = F.relu(x)
-            x = self.fc3(x)
-            return F.tanh(x)
-        elif self.bn_mode==2:
-            # Batch Normalization after Activation  
-            x = F.relu(self.fc1(state))
-            x = self.bn1(x) 
-            x = F.relu(self.fc2(x))
-            return F.tanh(self.fc3(x))
-        elif self.bn_mode==3:
-            # Batch Normalization before Activation (alternate version)
-            x = self.fc1(state)
-            x = self.bn1(x)   
-            x = F.relu(x)
-            x = self.fc2(x)
-            x = self.bn2(x)   
-            x = F.relu(x)
-            x = self.fc3(x)
-            x = self.bn3(x)   
-            return F.tanh(x)
-        elif self.bn_mode==4:
-            # Batch Normalization after Activation  (alternate version)
-            x = F.relu(self.fc1(state))
-            x = self.bn1(x) 
-            x = F.relu(self.fc2(x))
-            x = self.bn2(x)   
-            return F.tanh(self.fc3(x))
->>>>>>> fe6545afa0637adb970e82e7e0163dcc60cbe938
+
 
 class Critic(nn.Module):
     """Critic (Value) Model."""
@@ -134,20 +79,9 @@ class Critic(nn.Module):
         
         # Normalization layers
         self.bn1 = nn.BatchNorm1d(fcs1_units)
-<<<<<<< HEAD
 
         self.reset_parameters()
         
-=======
-        if bn_mode>2:
-            self.bn2 = nn.BatchNorm1d(fc2_units)
-        self.bn_mode=bn_mode
-
-        self.reset_parameters()
-        
-        #print("[INFO] CRITIC initialized with parameters : state_size={} action_size={} seed={} fcs1_units={} fc2_units={} bn_mode={}".format(state_size, action_size, seed, fcs1_units, fc2_units, bn_mode))
-        
->>>>>>> fe6545afa0637adb970e82e7e0163dcc60cbe938
 
     def reset_parameters(self):
         self.fcs1.weight.data.uniform_(*hidden_init(self.fcs1))
@@ -161,57 +95,9 @@ class Critic(nn.Module):
         if state.dim() == 1:
             state = torch.unsqueeze(state,0)
                   
-<<<<<<< HEAD
-        
         # Batch Normalization after Activation  
         xs = F.relu(self.fcs1(state))
         xs = self.bn1(xs) 
         x = torch.cat((xs, action), dim=1)
         x = F.relu(self.fc2(x))
-        return self.fc3(x)       
-            
-    
-=======
-        if self.bn_mode==0:
-            # Batch Normalization disabled
-            xs = F.relu(self.fcs1(state))
-            x = torch.cat((xs, action), dim=1)
-            x = F.relu(self.fc2(x))
-            return self.fc3(x)
-        elif self.bn_mode==1:
-            # Batch Normalization before Activation
-            xs = self.fcs1(state)
-            xs = self.bn1(xs)   
-            xs = F.relu(xs)
-            x = torch.cat((xs, action), dim=1)
-            x = self.fc2(x)
-            x = F.relu(x)
-            return self.fc3(x)
-        elif self.bn_mode==2:
-            # Batch Normalization after Activation  
-            xs = F.relu(self.fcs1(state))
-            xs = self.bn1(xs) 
-            x = torch.cat((xs, action), dim=1)
-            x = F.relu(self.fc2(x))
-            return self.fc3(x)
-        elif self.bn_mode==3:
-            # Batch Normalization before Activation (alternate version)
-            xs = self.fcs1(state)
-            xs = self.bn1(xs)   
-            xs = F.relu(xs)
-            x = torch.cat((xs, action), dim=1)
-            x = self.fc2(x)
-            x = self.bn2(x) 
-            x = F.relu(x)
-            return self.fc3(x)
-        elif self.bn_mode==4:
-            # Batch Normalization after Activation (alternate version) 
-            xs = F.relu(self.fcs1(state))
-            xs = self.bn1(xs) 
-            x = torch.cat((xs, action), dim=1)
-            x = F.relu(self.fc2(x))
-            x = self.bn2(x)   
-            return self.fc3(x)
-            
-    
->>>>>>> fe6545afa0637adb970e82e7e0163dcc60cbe938
+        return self.fc3(x)
