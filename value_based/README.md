@@ -16,6 +16,11 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
 
 ### Getting Started
+#### Unity ML-Agents
+
+Unity Machine Learning Agents (ML-Agents) is an open-source Unity plugin that enables games and simulations to serve as environments for training intelligent agents.
+You can read more about ML-Agents by perusing [the GitHub repository](https://github.com/Unity-Technologies/ml-agents).
+
 1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
     - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
     - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
@@ -38,7 +43,6 @@ Use the `requirements.txt` file under the main folder to install the required de
 pip install -r requirements.txt
 
 ```
-
 ## Instructions
 - **DQN**: Run solution-dqn.ipynb
 - **Double DQN**: Run solution-double-dqn.ipynb
