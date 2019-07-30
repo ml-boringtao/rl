@@ -4,10 +4,6 @@
 
 For this project, you will work with the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
 
-| Random agent             |  Trained agent |
-:-------------------------:|:-------------------------:
-![Random Agent](results/random_agent.gif)  |  ![Trained Agent](results/trained_agent.gif)
-
 In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
 
 The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
@@ -65,5 +61,5 @@ pip install -r requirements.txt
 
 ```
 ## Instructions
-- **OPTION 1**: Run solution_ddpg_1.ipynb (based on model_1.py and ddpg_agent_1.py, checkpoint files: output/ddpg_1_checkpoint_actor.pth, ddpg_1_checkpoint_critic.pth, ddpg_1_scores.npy, ddpg_1_scores_plot.png)
-- **OPTION 2**: Run solution_ddpg_20.ipynb (based on model_20.py and ddpg_agent_20.py, checkpoint files: output/ddpg_20_checkpoint_actor.pth, ddpg_20_checkpoint_critic.pth, ddpg_20_scores.npy, ddpg_20_scores_plot.png)
+- **OPTION 1**: Run solution_ddpg_1.ipynb
+- **OPTION 2**: Run solution_ddpg_20.ipynb
