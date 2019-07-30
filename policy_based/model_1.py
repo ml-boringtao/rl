@@ -12,7 +12,7 @@ def hidden_init(layer):
 class Actor(nn.Module):
     """Actor (Policy) Model."""
 
-    def __init__(self, state_size, action_size, seed, fc1_units=400, fc2_units=300, bn_mode=0):
+    def __init__(self, state_size, action_size, seed, fc1_units=400, fc2_units=300):
         """Initialize parameters and build model.
         Params
         ======
@@ -21,7 +21,6 @@ class Actor(nn.Module):
             seed (int): Random seed
             fc1_units (int): Number of nodes in first hidden layer
             fc2_units (int): Number of nodes in second hidden layer
-            bn_mode (int): Use Batch Normalization - 0=disabled, 1=BN before Activation, 2=BN after Activation (3, 4 are alt. versions of 1, 2)
         """
         super(Actor, self).__init__()
         self.seed = torch.manual_seed(seed)
@@ -58,7 +57,7 @@ class Actor(nn.Module):
 class Critic(nn.Module):
     """Critic (Value) Model."""
 
-    def __init__(self, state_size, action_size, seed, fcs1_units=400, fc2_units=300, bn_mode=0):
+    def __init__(self, state_size, action_size, seed, fcs1_units=400, fc2_units=300):
         """Initialize parameters and build model.
         Params
         ======
@@ -67,7 +66,6 @@ class Critic(nn.Module):
             seed (int): Random seed
             fcs1_units (int): Number of nodes in the first hidden layer
             fc2_units (int): Number of nodes in the second hidden layer
-            bn_mode (int): Use Batch Norm. - 0=disabled, 1=BN before Activation, 2=BN after Activation (3, 4 are alt. versions of 1, 2)
         """
         super(Critic, self).__init__()
         self.seed = torch.manual_seed(seed)
