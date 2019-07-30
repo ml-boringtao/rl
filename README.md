@@ -7,18 +7,20 @@ Solutions to the projects Udacity's Deep Reinforcement Learning Nanodegree progr
 
 conda create --name drlnd python=3.6
 source activate drlnd
-echo 'source activate drlnd' >> ~/.bashrc 
+echo 'source activate drlnd' >> ~/.bashrc
 
-pip install box2d
+git clone https://github.com/openai/gym.git
+cd gym
+pip install -e .
 
 git clone https://github.com/udacity/deep-reinforcement-learning.git
 cd deep-reinforcement-learning/python
-pip install
+pip install .
 
 python -m ipykernel install --user --name drlnd --display-name "drlnd"
 
+sudo apt-get install swig
 pip install box2d
 sudo apt-get install xvfb
 pip install xvfbwrapper
 pip install pyvirtualdisplay
-```
