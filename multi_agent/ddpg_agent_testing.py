@@ -19,17 +19,17 @@ from utils import save_to_json, save_to_txt
 config = {
     "USE_BATCHNORM": False,      # whether to use batch norm (paper used it to learn across many different games)
     "BUFFER_SIZE": int(2e6),     # replay buffer size
-    "BATCH_SIZE": 128,           # minibatch size
+    "BATCH_SIZE": 64,           # minibatch size
     "GAMMA": 0.9,                # discount factor
     "TAU": 1e-3,                 # for soft update of target parameters
-    "LR_ACTOR": 1e-3,            # learning rate of the actor 
-    "LR_CRITIC": 1e-3,           # learning rate of the critic
+    "LR_ACTOR": 1e-4,            # learning rate of the actor 
+    "LR_CRITIC": 1e-4,           # learning rate of the critic
     "WEIGHT_DECAY": 0,           # L2 weight decay
     # "SCALE_REWARD": 0.1,       # scaling factor applied to rewards (http://arxiv.org/abs/1604.06778)
     "SCALE_REWARD": 1.0,         # default scaling factor
     "SIGMA": 0.01,
-    "FC1": 32,
-    "FC2": 16,
+    "FC1": 256,
+    "FC2": 128,
 }
 
 # Create logger
