@@ -37,7 +37,7 @@ The observation space consists of 8 variables corresponding to the position and 
 
 
 # Learning Algorithm
-In my implementation I have chosen to an *off-policy method* called **Multi Agent Deep Deterministic Policy Gradient (MADDPG)** algorithm. I tried to use **Deep Deterministic Policy Gradient (DDPG)** to solve the problem, but it stops to converge at 0.3. 
+In my implementation I have chosen to an *off-policy method* called **Multi Agent Deep Deterministic Policy Gradient (MADDPG)** algorithm. I tried to use **Deep Deterministic Policy Gradient (DDPG)** to solve the problem, but it stops to converge at 0.3. Please check `solution_ddpg_testing.ipynb`. Then I managed to use solve the problem in 2323 episodes.  Please check `solution_maddpg.ipynb`.
 
 
 - **DDPG**: The DDPG - Deep deterministic policy gradients - is a model free, off-policy actor-critic algorithm that uses deep neural networks to learn policies in high-dimensional, continuous action spaces. The actor network takes state as input and returns the action whereas the critic network takes state and action as input and returns the value. The critic in this case is a DQN with local and fixed target networks and replay buffer (memory). Both, actor and critic use two neural networks: local and fixed. The local networks are trained by sampling experiences from replay buffer and minimising the loss function.
@@ -52,15 +52,10 @@ For fixed number of timesteps in an episode, it will:
 The following image from the paper shows the algorithm:
 ![DDPG](images/ddpg.svg)
 
-I tried to use DDPG to solve the problem. However, I stuck at 0.3. Check `solution_ddpg_testing.ipynb`.
-
 - **MADDPG**: The key improvement of MADDPG over the DDPG approach is that we now share the actions taken by all agents to train each agent. This means that during the training, the Critics networks have access to the states and actions information of both agents, while the Actors networks have only access to the information corresponding to their local agent.
 
 The following image from the paper shows the algorithm:
 ![DDPG](images/maddpg.png)
-
-
-I managed to use solve the problem in 2323 episodes. 
 
 ### Hyperparameters
 #### MADDPG
@@ -88,7 +83,7 @@ I managed to use solve the problem in 2323 episodes.
 ## Results
 | MADDPG                                             | DDPG                                  |
 | -------------------------------------------------- | ------------------------------------------------|
-| ![maddpg](output/maddpg_scores_plot.png)    | ![ddpg](output/ddpg_scores_plot.png)
+| ![maddpg](output/maddpg_scores_plot.png)           | ![ddpg](output/ddpg_scores_plot.png)
 
 ## Ideas for improvement
 I found online other people were managed to solve the problem using DDPG method, which takes longer and is less stable. I would like to spend more time investigating on how they have done it. 
